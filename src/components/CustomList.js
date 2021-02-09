@@ -5,18 +5,18 @@ import {connect} from "react-redux";
 import {deleteMovie,addMovie} from '../actions/movie'
 
 const CustomList = (props) =>{
-    const {moviedata,navigation,page,totalPages,_loadFilms,movies} = props;
+    const {moviedata,navigation,page,totalPages,_loadFilms,movies,add,del} = props;
 
     const isInFav =(id)=>{
-        return movies.find(movie => movie.key === id) !== undefined
+        return movies.find(movie => movie.id === id) !== undefined
      }
      
      const handleaddMovie = (movie)=>{
-         this.props.add(movie)
+        add(movie)
      }
      
      const handledeleteMovie = (id)=>{
-         this.props.delete(id)
+        del(id)
      }
     return (
         <FlatList
@@ -43,7 +43,7 @@ const mapStateToProps = (state) =>{
 
 const mapDispatchToProps = (dispatch) =>{
     return{
-        delete:(key)=>dispatch(deleteMovie(key)),
+        del:(id)=>dispatch(deleteMovie(id)),
         add:(movie)=>dispatch(addMovie(movie))
     }
 }

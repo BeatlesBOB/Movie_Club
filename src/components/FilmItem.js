@@ -2,9 +2,10 @@ import React,{useEffect,useRef} from 'react';
 import {View, Text, StyleSheet, Image, TouchableOpacity,Animated,Dimensions,Easing} from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import {colors} from '../constants/variables';
+import { deleteMovie } from '../actions/movie';
 
 export const FilmItem = (props) => {
-    const {film, goToDetail, isFav} = props;
+    const {film, goToDetail, isFav,addMovie,deletemovie} = props;
     const translateX = useRef(new Animated.Value(Dimensions.get('window').width)).current;
     let iconName;
 
@@ -37,10 +38,10 @@ export const FilmItem = (props) => {
                         </View>
                         <View style={{justifyContent: 'center', flex:1}}>
                             {isFav ? 
-                                <TouchableOpacity>
-                                    <FontAwesome name={'star'} size={30} color={colors.star}  />
+                                <TouchableOpacity onPress={()=>deletemovie(film.id)}>
+                                    <FontAwesome name={'star'} size={30} color={colors.star} />
                                 </TouchableOpacity>
-                            :   <TouchableOpacity>
+                            :   <TouchableOpacity onPress={()=>addMovie(film)}>
                                     <FontAwesome name={'star-o'} size={30} color={colors.star}  />
                                 </TouchableOpacity>
                             }
