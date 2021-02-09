@@ -1,6 +1,6 @@
 import React from 'react';
 import {SafeAreaView, View, StyleSheet} from "react-native";
-import { CustomList } from '../components/CustomList';
+import CustomList from '../components/CustomList';
 import {Search} from "../components/Search";
 
 import {searchMovie} from "../services/movie";

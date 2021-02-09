@@ -2,7 +2,7 @@ import {createStore, combineReducers} from 'redux';
 import movieReducer from './reducers/movieReducer'
 
 const rootReducer = combineReducers({
-    movies:movieReducer
+    movieReducer:movieReducer
 })
 
 export const configureStore = createStore(rootReducer);
