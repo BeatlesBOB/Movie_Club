@@ -10,7 +10,6 @@ export const FilmItem = (props) => {
         Animated.timing(translateX, {
             toValue: 0,
             duration: 2000,
-            easing:Easing.ease,
             useNativeDriver:true
           }).start();
     }, [])
