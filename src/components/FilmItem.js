@@ -5,10 +5,12 @@ import {View, Text, StyleSheet, Image, TouchableOpacity,Animated,Dimensions,Easi
 export const FilmItem = (props) => {
     const {film, goToDetail} = props;
     const translateX = useRef(new Animated.Value(Dimensions.get('window').width)).current;
+
     useEffect(() => {
         Animated.timing(translateX, {
             toValue: 0,
             duration: 2000,
+            easing:Easing.ease,
             useNativeDriver:true
           }).start();
     }, [])

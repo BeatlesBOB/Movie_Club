@@ -5,7 +5,7 @@ export const addMovie= (movie)=>({
     data:movie
 })
 
-export const deleteMovie= (key)=>({
+export const deleteMovie= (id)=>({
     type:DELETE_MOVIE,
-    key:key
+    id:id
 })
