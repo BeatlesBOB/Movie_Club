@@ -3,6 +3,7 @@ export const colors = {
     primary : '#B00020',
     text : '#B5A90F',
     background : '#F4F4F4',
+    star: 'gold',
 }
 
 // Shadow
