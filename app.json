@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "montest",
-    "slug": "montest",
+    "name": "Movie_Club",
+    "slug": "Movie_Club",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",

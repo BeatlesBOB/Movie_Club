@@ -75,7 +75,7 @@ export const DetailsScreen = (props) => {
                     <Button color="#B00020" onPress={()=>handlePress()} title="Visit website" />
                 </View>
             )}
-            {video && (
+            {video && video.results[0] && (
                 <CustomModal modalVisible={isVisible} setModalVisibility={setModalVisibility} youtubeID={video.results[0].key} />
             )}
 

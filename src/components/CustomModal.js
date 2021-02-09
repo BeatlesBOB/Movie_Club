@@ -1,5 +1,6 @@
 import React, { useEffect,useState } from "react";
 import { Button, Modal, StyleSheet , View,Platform } from "react-native";
+import { WebView } from 'react-native-webview';
 
 export const CustomModal = (props) => {
   const {modalVisible,setModalVisibility,youtubeID} = props;
@@ -12,6 +13,12 @@ export const CustomModal = (props) => {
         visible={modalVisible}>
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
+            <WebView
+                style={ styles.WebViewContainer }
+                javaScriptEnabled={true}
+                domStorageEnabled={true}
+                source={{uri: `https://www.youtube.com/embed/${youtubeID}` }}
+                />
 
             <Button
               title="Hide"
@@ -65,6 +72,6 @@ const styles = StyleSheet.create({
       textAlign: "center"
     },
     WebViewContainer: {
-      width: "100%",
+      width: 300,
     }
   });
