@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import {FlatList,Animated} from "react-native";
 import {FilmItem} from "./FilmItem";
+import {connect} from "react-redux";
+import {deleteMovie,addMovie} from '../actions/movie'
 
-export const CustomList = (props) => {
+const CustomList = (props) =>{
     const {moviedata,navigation,page,totalPages,_loadFilms} = props;
     return (
         <FlatList
@@ -18,3 +20,16 @@ export const CustomList = (props) => {
         />
     )
 }
+const mapStateToProps = (state) =>{
+    return{
+        movies:state.movieReducer.movieList
+    }
+}
+
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        delete:(key)=>dispatch(deleteMovie(key)),
+        add:(movie)=>dispatch(addMovie(movie))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(CustomList)

@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, Button, View, StyleSheet, Text, FlatList, ActivityIndicator ,Animated,Easing} from "react-native";
 import { getMovieByGenres } from '../services/movie';
-import { CustomList } from '../components/CustomList';
+import CustomList  from '../components/CustomList';
 import { NoMovies } from '../components/NoMovies';
 
 export default class GenreScreen extends React.Component {
