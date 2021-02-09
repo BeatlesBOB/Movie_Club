@@ -8,11 +8,11 @@ const movieReducer = (state = initialState,action)=>{
     switch(action.type){
         case ADD_MOVIE:
             return {...state,movieList:state.movieList.concat({
-                key:Math.random(),
+                key:action.data.id,
                 data:action.data
             })};
         case DELETE_MOVIE:
-            return {...state,movieList:state.movieList.filter(item => item.key !== key)};
+            return {...state,movieList:state.movieList.filter(item => item.id !== action.id)};
         default:
             return state;
     }
