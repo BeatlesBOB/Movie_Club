@@ -2,6 +2,7 @@ import React from 'react';
 import {SafeAreaView, Button, View, StyleSheet, Text, FlatList, ActivityIndicator ,Animated,Easing} from "react-native";
 import {Header} from "../components/Header";
 import {GenreList} from "../components/GenreList"
+import { colors } from '../constants/variables';
 
 export default class HomeeScreen extends React.Component {
     state = {
@@ -33,7 +34,7 @@ export default class HomeeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -41,7 +42,6 @@ const styles = StyleSheet.create({
       flex: 3,
       alignItems: 'center',
       padding: 20,
-      flexDirection: 'row',
-      justifyContent: 'space-between'
+      justifyContent: 'center'
   }
 });

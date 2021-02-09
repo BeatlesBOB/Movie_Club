@@ -12,6 +12,7 @@ const CustomList = (props) =>{
             renderItem={({item}) => <FilmItem film={item} goToDetail={() => navigation.navigate('Details', {title: item.title, id: item.id})} />}
             keyExtractor={item => item.id.toString()}
             onEndReachedThreshold={0.5}
+            showsVerticalScrollIndicator={false}
             onEndReached={() => {
                 if (page < totalPages) {
                     _loadFilms();

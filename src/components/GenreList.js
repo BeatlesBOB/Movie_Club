@@ -15,13 +15,20 @@ export const GenreList = (props) => {
     return (
         <FlatList
         data={genre}
+        style={styles.genreList}
         renderItem={({item}) => <CategoryItem
         category={item.name}
+        columnWrapperStyle={{justifyContent: 'space-around'}}
         goToGenre={() => navigation.navigate('GenreScreen', {genreId: item.id})}
         />}
         keyExtractor={({id})=> id.toString()}
-        style={{width: 350}}
         numColumns={2}
+        showsVerticalScrollIndicator={false}
         />
     )
 }
+
+const styles = StyleSheet.create({
+    genreList: {
+    }
+})

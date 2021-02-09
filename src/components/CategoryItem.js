@@ -17,23 +17,26 @@ export const CategoryItem = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        width: 150,
-        height: 50,
-        // borderWidth: 1,
-        // borderColor: colors.primary,
-        // justifyContent: 'space-between',
         alignItems: 'center',
-        // shadowColor: shadow.color,
-        // shadowOffset: shadow.offSet,
-        // shadowOpacity: shadow.opacity,
-        elevation: 12,
-        paddingTop: 10,
-        paddingBottom: 10,
-        flex: 3
+        shadowOffset: {
+            width: 0,
+            height: 2
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 4,
+        shadowColor: colors.primary,
+        elevation: 5,
+        paddingTop: 15,
+        paddingBottom: 15,
+        margin: 10,
+        width: 140,
+        flex: 1,
+        backgroundColor: '#FFF'
     },
     title: {
         color: colors.primary,
         fontSize: 16,
+        textAlign: 'center',
         fontWeight: 'bold',
     }
 })

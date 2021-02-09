@@ -20,7 +20,7 @@ export default class GenreScreen extends React.Component {
 
     componentDidMount(){
         getMovieByGenres(this.props.route.params.genreId)
-        .then(data => {console.log(data)
+        .then(data => {
             this.page = data.page;
             this.totalPages = data.total_pages;
             this.setState({filmsState: [...this.state.filmsState, ...data.results], isLoading: false});
