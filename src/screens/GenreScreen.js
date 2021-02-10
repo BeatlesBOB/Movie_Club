@@ -36,7 +36,7 @@ export default class GenreScreen extends React.Component {
             <View style={styles.container}>
                 <View>
                     {this.state.filmsState.length > 0 ?
-                    <CustomList navigation={this.props.navigation} moviedata={this.state.filmsState} page={this.page} totalPages={this.totalPages} _loadFilms={this._loadFilms}/>
+                    <CustomList isDataFromStore={false} navigation={this.props.navigation} moviedata={this.state.filmsState} page={this.page} totalPages={this.totalPages} _loadFilms={this._loadFilms}/>
                     : <NoMovies/>}
                 </View>
             </View>

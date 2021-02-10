@@ -57,7 +57,7 @@ export default class SearchScreen extends React.Component {
                         <Search handleSearch={this.handleSearchText} handleClickButton={this._searchFilms}/>
                     </View>
                     <View style={styles.result_container}>
-                        {this.state.filmsState.length>0 ?<CustomList navigation={this.props.navigation} moviedata={this.state.filmsState} page={this.page} totalPages={this.totalPages} _loadFilms={this._loadFilms}/> : <NoMovies/>}
+                        {this.state.filmsState.length>0 ?<CustomList  isDataFromStore={false} navigation={this.props.navigation} moviedata={this.state.filmsState} page={this.page} totalPages={this.totalPages} _loadFilms={this._loadFilms}/> : <NoMovies/>}
                     </View>
             </SafeAreaView>
         )

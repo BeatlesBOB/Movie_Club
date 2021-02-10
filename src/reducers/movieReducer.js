@@ -12,7 +12,6 @@ const movieReducer = (state = initialState,action)=>{
                 data:action.data
             })};
         case DELETE_MOVIE:
-            console.log("delete");
             return {...state,movieList:state.movieList.filter((item) => item.id !== action.id)};
         default:
             return state;

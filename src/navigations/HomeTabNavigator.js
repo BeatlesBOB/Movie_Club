@@ -4,6 +4,7 @@ import {SearchStackNavigator} from "../navigations/SearchStackNavigator";
 import { FontAwesome } from '@expo/vector-icons';
 import { View, Text, TouchableOpacity } from 'react-native';
 import HomeScreen from '../screens/HomeScreen';
+import FavorieScreen from '../screens/FavorieScreen';
 
 const TabNavigator = createBottomTabNavigator();
 
@@ -24,6 +25,11 @@ function CustomTabBar({ state, descriptors, navigation }) {
           iconSize = 25
         } else if (route.name === 'Search') {
           iconName = "search";
+          iconColor= isFocused ? '#B5A90F' : 'black';
+          iconSize = 20
+        }
+        else if (route.name === 'Favorie') {
+          iconName = "star";
           iconColor= isFocused ? '#B5A90F' : 'black';
           iconSize = 20
         }
@@ -70,6 +76,7 @@ export const HomeTabNavigator = () => {
         <TabNavigator.Navigator tabBar={props => <CustomTabBar {...props} />}>
             <TabNavigator.Screen name="Home" component={HomeScreen} key={0}/>
             <TabNavigator.Screen name="Search" component={SearchStackNavigator} key={1}/>
+            <TabNavigator.Screen name="Favorie" component={FavorieScreen} key={2}/>
         </TabNavigator.Navigator>
     )
 }
