@@ -19,13 +19,19 @@ export default class GenreScreen extends React.Component {
     }
 
     componentDidMount(){
-        getMovieByGenres(this.props.route.params.genreId)
-        .then(data => {
-            this.page = data.page;
-            this.totalPages = data.total_pages;
-            this.setState({filmsState: [...this.state.filmsState, ...data.results], isLoading: false});
+        this.props.navigation.setOptions({ title: this.props.route.params.title });
+        try{
+            getMovieByGenres(this.props.route.params.genreId)
+            .then(data => {
+                this.page = data.page;
+                this.totalPages = data.total_pages;
+                this.setState({filmsState: [...this.state.filmsState, ...data.results], isLoading: false});
             })
+        }catch(e){
+            console.log(e)
         }
+        
+    }
 
     _loadFilms = () => {
         this.setState({isLoading: true})
@@ -34,11 +40,9 @@ export default class GenreScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <View>
-                    {this.state.filmsState.length > 0 ?
+                   {this.state.filmsState.length > 0 ?
                     <CustomList isDataFromStore={false} navigation={this.props.navigation} moviedata={this.state.filmsState} page={this.page} totalPages={this.totalPages} _loadFilms={this._loadFilms}/>
                     : <NoMovies/>}
-                </View>
             </View>
         )
     }

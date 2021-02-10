@@ -1,25 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import {View, FlatList, StyleSheet, SafeAreaView, ActivityIndicator} from "react-native";
-import {getGenres} from "../services/movie";
 import {CategoryItem} from "../components/CategoryItem";
 
 export const GenreList = (props) => {
-    const {navigation} = props;
-    const [genre, setGenre] = useState(null);
+    const {navigation,genre} = props;
 
-    useEffect(() => {
-        getGenres()
-        .then(data=>{setGenre(data.genres)})
-    }, [])
 
     return (
         <FlatList
         data={genre}
-        style={styles.genreList}
         renderItem={({item}) => <CategoryItem
         category={item.name}
         columnWrapperStyle={{justifyContent: 'space-around'}}
-        goToGenre={() => navigation.navigate('GenreScreen', {genreId: item.id})}
+        goToGenre={() => navigation.navigate('GenreScreen', {genreId: item.id,title:item.name})}
         />}
         keyExtractor={({id})=> id.toString()}
         numColumns={2}
@@ -28,7 +21,3 @@ export const GenreList = (props) => {
     )
 }
 
-const styles = StyleSheet.create({
-    genreList: {
-    }
-})

@@ -35,13 +35,18 @@ export default class SearchScreen extends React.Component {
     }
 
     _loadFilms = () => {
-        this.setState({isLoading: true})
-        searchMovie(this.state.searchText, this.page + 1)
+        this.setState({isLoading: true});
+        try{
+            searchMovie(this.state.searchText, this.page + 1)
             .then(data => {
                 this.page = data.page;
                 this.totalPages = data.total_pages;
                 this.setState({filmsState: [...this.state.filmsState, ...data.results], isLoading: false});
             })
+        }catch(e){
+            console.log(e)
+        }
+        
     }
 
 

@@ -3,20 +3,26 @@ import {SafeAreaView, Button, View, StyleSheet, Text, FlatList, ActivityIndicato
 import {Header} from "../components/Header";
 import {GenreList} from "../components/GenreList"
 import { colors } from '../constants/variables';
+import {getGenres} from "../services/movie";
 
 export default class HomeeScreen extends React.Component {
+    
     state = {
-        searchText: '',
-        filmsState: [],
-        isLoading: false,
+        genre: [],
     }
-    page;
-    totalPages;
-
     constructor(props) {
-        super(props);
-        this.page = 0;
-        this.totalPages = 0;
+        super(props); 
+    }
+    componentDidMount(){
+        try{
+            getGenres()
+            .then(data=>{
+                this.setState({genre:data.genres});
+                console.log(data.genres)
+            })
+        }catch(e){
+            console.log(e)
+        }
     }
 
     render() {
@@ -24,7 +30,7 @@ export default class HomeeScreen extends React.Component {
             <View style={styles.container}>
                 <Header/>
                 <View style={styles.category_container}>
-                    <GenreList navigation={this.props.navigation}/>
+                    <GenreList navigation={this.props.navigation} genre={this.state.genre}/>
                 </View>
             </View>
         )

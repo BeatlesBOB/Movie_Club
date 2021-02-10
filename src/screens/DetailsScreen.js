@@ -11,11 +11,16 @@ export const DetailsScreen = (props) => {
     const [video, setVideo] = useState(null);
 
     useEffect(() => {
-        getMovie(route.params.id)
-        .then(data =>{setMovie(data); console.log(data.video)})
-        getVideo(route.params.id).then(data=>{
-            setVideo(data);
-        })
+        try{
+            getMovie(route.params.id)
+            .then(data =>{setMovie(data); console.log(data.video)})
+            getVideo(route.params.id).then(data=>{
+                setVideo(data);
+            })
+        }catch(e){
+            console.log(e)
+        }
+        
     }, [])
 
     const handlePress = () =>{
